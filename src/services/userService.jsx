@@ -1,5 +1,5 @@
 // services/userService.js
-import { auth } from "../services/Firebase";
+import { auth } from "./Firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
