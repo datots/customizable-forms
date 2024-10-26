@@ -1,6 +1,6 @@
 // useAuth.js
 import { useState, useEffect } from "react";
-import { auth } from "../../services/firebase"; // Adjust path according to your file structure
+import { auth } from "../../services/Firebase"; // Adjust path according to your file structure
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
