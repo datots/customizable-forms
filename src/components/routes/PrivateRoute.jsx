@@ -1,15 +1,61 @@
+// import React from "react";
+// import PropTypes from "prop-types";
+// import { Navigate } from "react-router-dom";
+
+// const PrivateRoute = ({ children, allowedRoles }) => {
+//   const token = localStorage.getItem("token");
+
+//   // If no token, redirect to login
+//   if (!token) {
+//     return <Navigate to="/" replace />;
+//   }
+
+//   // Decode the token to get user role
+//   const decodedToken = JSON.parse(atob(token.split(".")[1]));
+//   const userRole = decodedToken.role;
+
+//   // If the user role is not in allowedRoles, redirect to login
+//   if (!allowedRoles.includes(userRole)) {
+//     return <Navigate to="/" replace />;
+//   }
+
+//   return children;
+// };
+
+// PrivateRoute.propTypes = {
+//   children: PropTypes.node.isRequired,
+//   allowedRoles: PropTypes.arrayOf(PropTypes.string).isRequired,
+// };
+
+// export default PrivateRoute;
+
 import React from "react";
+import PropTypes from "prop-types";
 import { Navigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
 
-const PrivateRoute = ({ children }) => {
-  const { user, loading } = useAuth();
+const PrivateRoute = ({ children, allowedRoles }) => {
+  const token = localStorage.getItem("token");
 
-  if (loading) {
-    return <div>Loading...</div>;
+  // If no token, redirect to login
+  if (!token) {
+    return <Navigate to="/" replace />;
   }
 
-  return user ? children : <Navigate to="/login" />;
+  // Decode the token to get user role
+  const decodedToken = JSON.parse(atob(token.split(".")[1]));
+  const userRole = decodedToken.role;
+
+  // If the user role is not in allowedRoles, redirect to login
+  if (allowedRoles && !allowedRoles.includes(userRole)) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
+
+PrivateRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+  allowedRoles: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default PrivateRoute;

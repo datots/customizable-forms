@@ -1,14 +1,22 @@
 module.exports = {
-  extends: ["plugin:react/recommended", "prettier"],
-  parser: "babel-eslint", // Use babel-eslint to support JSX
-  plugins: ["react"],
-  rules: {
-    "react/react-in-jsx-scope": "off", // No need to import React when using JSX with React 17+
-    "no-unused-vars": "warn",
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+    es6: true,
   },
-  settings: {
-    react: {
-      version: "detect", // Automatically pick the version you have installed.
-    },
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended", // If you are using React
+  ],
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: "module", // Allow ES module syntax
+  },
+  globals: {
+    process: "readonly", // Define process as a global variable
+  },
+  rules: {
+    // Your custom rules
   },
 };
