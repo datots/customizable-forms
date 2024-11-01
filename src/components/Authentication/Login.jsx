@@ -15,7 +15,7 @@ const Login = () => {
     setIsLoading(true); // Start loading state
     try {
       const response = await axios.post(
-        "https://vercel.com/datotshotmailcoms-projects/gforms-replica-backend-lr9b/api/auth/login",
+        "https://gforms-replica-backend-lr9b.vercel.app/api/auth/login",
         values
       );
 

@@ -13,7 +13,7 @@ const TemplateManagement = () => {
 
   const TEMPLATE_API_URL =
     import.meta.env.VITE_TEMPLATE_API_URL ||
-    "https://vercel.com/datotshotmailcoms-projects/gforms-replica-backend-lr9b/api/templates"; // Ensure the endpoint is correct
+    "https://gforms-replica-backend-lr9b.vercel.app/api/templates"; // Ensure the endpoint is correct
 
   const fetchTemplates = async () => {
     setLoading(true);
