@@ -81,12 +81,12 @@ const Login = () => {
         if (userRole === "admin") {
           console.log("Redirecting to admin dashboard");
           navigate("/admin");
-        } else {
-          console.log("Redirecting to user dashboard");
-          navigate("/userdashboard");
+        } else if (userRole === "template_creator") {
+          console.log("Redirecting to creator dashboard");
+          navigate("/creatordashboard");
         }
       } else {
-        // Handle case where token is missing in response
+        navigate("/");
         throw new Error("Invalid response from server: No token found");
       }
     } catch (error) {
