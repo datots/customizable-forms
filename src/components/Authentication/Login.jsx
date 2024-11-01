@@ -11,51 +11,11 @@ const Login = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false); // Local loading state
 
-  // const handleLogin = async (values) => {
-  //   setIsLoading(true); // Start loading state
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:5000/api/auth/login",
-  //       values
-  //     );
-
-  //     // Check if the response contains the token
-  //     if (response.data && response.data.token) {
-  //       alert("Login successful!");
-
-  //       const token = response.data.token;
-  //       localStorage.setItem("token", token); // Store token in local storage
-  //       const decoded = jwtDecode(token); // Decode token to get user info
-  //       setUser(decoded); // Update user state in context
-
-  //       const userRole = decoded.role;
-
-  //       // Redirect based on user role
-  //       if (userRole === "admin") {
-  //         console.log("Redirecting to admin dashboard");
-  //         navigate("/admin");
-  //       } else {
-  //         console.log("Redirecting to user dashboard");
-  //         navigate("/userdashboard");
-  //       }
-  //     } else {
-  //       throw new Error("Invalid response from server");
-  //     }
-  //   } catch (error) {
-  //     // Improved error handling
-  //     const errorMessage =
-  //       error.response?.data?.message || "Login failed. Please try again.";
-  //     alert(errorMessage);
-  //   } finally {
-  //     setIsLoading(false); // End loading state
-  //   }
-  // };
-
   const handleLogin = async (values) => {
     setIsLoading(true); // Start loading state
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://vercel.com/datotshotmailcoms-projects/gforms-replica-backend-lr9b/api/auth/login",
         values
       );
 

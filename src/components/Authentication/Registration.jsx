@@ -7,7 +7,7 @@ const Register = () => {
   const handleRegister = async (values) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://vercel.com/datotshotmailcoms-projects/gforms-replica-backend-lr9b/api/auth/register",
         values
       );
       alert(response.data.message);

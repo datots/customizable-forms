@@ -3,7 +3,9 @@ import axios from "axios";
 
 // Create an Axios instance with a base URL
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api", // Fallback to local server if not defined
+  baseURL:
+    import.meta.env.VITE_API_BASE_URL ||
+    "https://vercel.com/datotshotmailcoms-projects/gforms-replica-backend-lr9b/api", // Fallback to local server if not defined
 });
 
 // Interceptor for request
@@ -126,7 +128,8 @@ export const changeUserRole = async (id, role) => {
 // Debugging tip: Verify the base URL
 console.log(
   "API Base URL:",
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api"
+  import.meta.env.VITE_API_BASE_URL ||
+    "https://vercel.com/datotshotmailcoms-projects/gforms-replica-backend-lr9b/api"
 );
 
 // Export the Axios instance for use in other modules
